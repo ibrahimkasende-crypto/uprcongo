@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "communique-officiel-engagement-republicain",
+    "titre": "Communiqué officiel sur l’engagement républicain",
+    "date": "2026-06-10T08:00:00+01:00",
+    "categorie": "Communiqué",
+    "featured": false,
+    "image": "assets/uploads/communique-upr.svg",
+    "image_alt": "Communiqué officiel de l’UPR",
+    "description_courte": "L’UPR rappelle à ses cadres et membres l’importance de la discipline, de la responsabilité et du respect des textes du parti.",
+    "auteur": "UPR - Union des Patriotes pour la République",
+    "url": "communiques/communique-officiel-engagement-republicain/"
+  }
+]

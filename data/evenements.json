@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "assemblee-citoyenne-kinshasa",
+    "titre": "Assemblée citoyenne de mobilisation à Kinshasa",
+    "date": "2026-06-08T12:00:00+01:00",
+    "categorie": "Événement",
+    "featured": false,
+    "image": "assets/uploads/evenement-assemblee.svg",
+    "image_alt": "Assemblée officielle de l’UPR à Kinshasa",
+    "description_courte": "Rencontre d’information et de mobilisation autour de la devise Dieu - Patrie - Justice et du projet de société de l’UPR.",
+    "auteur": "UPR - Union des Patriotes pour la République",
+    "date_evenement": "2026-06-29T14:00:00+01:00",
+    "lieu": "Kinshasa, République Démocratique du Congo",
+    "url": "evenements/assemblee-citoyenne-kinshasa/"
+  }
+]

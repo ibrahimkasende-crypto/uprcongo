@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "acte-fondateur-upr",
+    "titre": "Acte fondateur de l’UPR",
+    "type": "Acte fondateur",
+    "date": "2014-01-30T00:00:00+01:00",
+    "fichier": "assets/documents/acte-fondateur-upr.pdf",
+    "description": "Document fondateur relatif à l’organisation et à la naissance politique de l’Union des Patriotes pour la République."
+  },
+  {
+    "slug": "projet-de-societe-upr",
+    "titre": "Projet de société de l’UPR",
+    "type": "Projet de société",
+    "date": "2026-06-01T00:00:00+01:00",
+    "fichier": "assets/documents/projet-de-societe-upr.pdf",
+    "description": "Document de référence présentant la vision de l’UPR pour la résurrection du Congo."
+  },
+  {
+    "slug": "protocole-accord-upr",
+    "titre": "Protocole d’accord de l’UPR",
+    "type": "Protocole",
+    "date": "2014-01-30T00:00:00+01:00",
+    "fichier": "assets/documents/protocole-accord-upr.pdf",
+    "description": "Protocole d’accord officiel relatif aux bases organisationnelles et politiques de l’UPR."
+  }
+]

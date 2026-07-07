@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Communiqué officiel de l'UPR</title>
+  <desc id="desc">Illustration d'un document officiel portant les couleurs institutionnelles de l'UPR.</desc>
+  <rect width="960" height="620" fill="#E2E8F0"/>
+  <rect x="156" y="76" width="648" height="468" rx="18" fill="#FFFFFF"/>
+  <rect x="156" y="76" width="648" height="82" rx="18" fill="#003B8E"/>
+  <circle cx="220" cy="118" r="24" fill="#FCD116"/>
+  <rect x="272" y="108" width="250" height="20" rx="10" fill="#FFFFFF"/>
+  <rect x="236" y="218" width="488" height="22" rx="11" fill="#0F172A"/>
+  <rect x="236" y="276" width="420" height="16" rx="8" fill="#64748B"/>
+  <rect x="236" y="316" width="458" height="16" rx="8" fill="#94A3B8"/>
+  <rect x="236" y="356" width="385" height="16" rx="8" fill="#CBD5E1"/>
+  <rect x="236" y="430" width="170" height="42" rx="21" fill="#CE1126"/>
+</svg>

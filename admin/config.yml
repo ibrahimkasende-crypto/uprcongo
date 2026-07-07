@@ -1,0 +1,91 @@
+# IMPORTANT HOSTINGER
+# Le site public peut être hébergé sur Hostinger, Vercel ou Netlify comme site statique.
+# Attention : le backend `git-gateway` nécessite Netlify Identity + Git Gateway.
+# Sur Hostinger uniquement, il faudra prévoir un backend OAuth GitHub compatible Decap CMS
+# ou utiliser Netlify pour l’authentification de l’espace /admin.
+
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: "https://uprcongo.cd"
+display_url: "https://uprcongo.cd"
+logo_url: "/assets/images/logo-upr.png"
+
+collections:
+  - name: "actualites"
+    label: "Actualités"
+    label_singular: "Actualité"
+    folder: "content/actualites"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{titre}} — {{categorie}} — {{date}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string", required: true }
+      - { label: "Date de publication", name: "date", widget: "datetime", required: true }
+      - label: "Catégorie"
+        name: "categorie"
+        widget: "select"
+        required: true
+        options: ["Communiqué", "Activité", "Déclaration", "Meeting", "Mobilisation", "Vie du parti", "Projet de société"]
+      - { label: "Mettre à la une", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+      - { label: "Description courte", name: "description_courte", widget: "text", required: true }
+      - { label: "Auteur", name: "auteur", widget: "string", default: "UPR - Union des Patriotes pour la République", required: true }
+      - { label: "Corps de la publication", name: "corps_article", widget: "markdown", required: true }
+
+  - name: "communiques"
+    label: "Communiqués"
+    label_singular: "Communiqué"
+    folder: "content/communiques"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{titre}} — {{date}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string", required: true }
+      - { label: "Date", name: "date", widget: "datetime", required: true }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+      - { label: "Résumé", name: "description_courte", widget: "text", required: true }
+      - { label: "Corps du communiqué", name: "corps_communique", widget: "markdown", required: true }
+
+  - name: "evenements"
+    label: "Événements"
+    label_singular: "Événement"
+    folder: "content/evenements"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    summary: "{{titre}} — {{date_evenement}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string", required: true }
+      - { label: "Date de publication", name: "date", widget: "datetime", required: true }
+      - { label: "Date de l’événement", name: "date_evenement", widget: "datetime", required: true }
+      - { label: "Lieu", name: "lieu", widget: "string", required: true }
+      - { label: "Image", name: "image", widget: "image", required: false }
+      - { label: "Texte alternatif de l’image", name: "image_alt", widget: "string", required: false }
+      - { label: "Résumé", name: "description_courte", widget: "text", required: true }
+      - { label: "Détails de l’événement", name: "corps_evenement", widget: "markdown", required: true }
+
+  - name: "documents"
+    label: "Documents"
+    label_singular: "Document"
+    folder: "content/documents"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{titre}} — {{type}}"
+    fields:
+      - { label: "Titre", name: "titre", widget: "string", required: true }
+      - { label: "Type", name: "type", widget: "select", options: ["Projet de société", "Acte fondateur", "Protocole", "Statuts", "Règlement", "Autre"], required: true }
+      - { label: "Date", name: "date", widget: "datetime", required: false }
+      - { label: "Fichier PDF", name: "fichier", widget: "file", required: true }
+      - { label: "Description", name: "description", widget: "text", required: true }
