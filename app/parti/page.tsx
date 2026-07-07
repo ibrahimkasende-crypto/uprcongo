@@ -91,23 +91,6 @@ export default function PartiPage() {
       </section>
 
       <section id="president" className="section-padding">
-        <div className="container-upr mb-10 overflow-hidden rounded-3xl">
-          <div className="relative aspect-[16/9] w-full">
-            <Image
-              src={PARTY.president.imageWide}
-              alt={`${PARTY.president.name} - Président national de l'UPR`}
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 1024px) 100vw, 1200px"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-upr-navy/80 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <p className="eyebrow text-upr-gold">{PARTY.president.title}</p>
-              <h2 className="text-2xl font-bold text-white md:text-3xl">{PARTY.president.name}</h2>
-            </div>
-          </div>
-        </div>
         <div className="container-upr grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="president-panel mx-auto w-full max-w-lg rounded-3xl p-5 sm:p-6">
             <PresidentPortrait />

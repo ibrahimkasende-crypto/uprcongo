@@ -1,4 +1,4 @@
-﻿import { ASSETS_VERSION, IMAGES, NEWS_IMAGE_BY_CATEGORY } from "@/lib/assets";
+import { ASSETS_VERSION, IMAGES, NEWS_IMAGE_BY_CATEGORY } from "@/lib/assets";
 
 export { ASSETS_VERSION, IMAGES, NEWS_IMAGE_BY_CATEGORY };
 
@@ -285,6 +285,63 @@ export const NEWS = [
     author: "UPR - Union des Patriotes pour la République",
     imagePosition: COORDINATION_NATIONALE.imagePosition,
     imageAspect: COORDINATION_NATIONALE.imageAspect,
+  },
+] as const;
+
+
+export const RDC_CITIES_STRIP = [
+  {
+    label: "Kinshasa",
+    src: IMAGES.kinshasa.echangeurLimete,
+    alt: "Échangeur de Limete, Kinshasa - capitale de la RDC",
+  },
+  {
+    label: "Kisangani",
+    src: IMAGES.rdc.kisangani,
+    alt: "Kisangani, Tshopo - confluence du fleuve Congo",
+  },
+  {
+    label: "Goma",
+    src: IMAGES.rdc.goma,
+    alt: "Goma, Nord-Kivu - ville du lac Kivu",
+  },
+  {
+    label: "Lubumbashi",
+    src: IMAGES.rdc.lubumbashi,
+    alt: "Lubumbashi, Haut-Katanga - capitale du cuivre",
+  },
+] as const;
+
+export const FOUNDING_DOCUMENTS = [
+  {
+    id: "acte-fondateur",
+    title: "Acte fondateur",
+    date: "2014-01-30",
+    image: IMAGES.documents.acteFondateur,
+    imageAlt: "Couverture - Acte fondateur UPR 2014",
+    excerpt:
+      "Signé à l'issue de l'Assemblée extraordinaire des Patriotes Républicains Congolais, les 29 et 30 janvier 2014 à Kinshasa, l'Acte fondateur consacre la naissance de l'UPR.",
+    fullContent: [
+      "L'Assemblée extraordinaire des représentants des Patriotes Républicains Congolais, réunie à Kinshasa du 29 au 30 janvier 2014, proclame la création de l'Union des Patriotes pour la République (UPR).",
+      "Les membres fondateurs affirment leur attachement à la souveraineté nationale, à l'intégrité territoriale du Congo et à la défense de l'intérêt général du peuple congolais.",
+      "L'Acte fondateur consacre une vision républicaine fondée sur la devise Dieu - Patrie - Justice et sur l'engagement de servir le pays sans se servir.",
+      "Il fixe les bases morales, politiques et institutionnelles du parti et rappelle la responsabilité de chaque militant envers la nation et les générations futures.",
+    ],
+  },
+  {
+    id: "protocole-accord",
+    title: "Protocole d'accord",
+    date: "2014-01-30",
+    image: IMAGES.documents.protocoleAccord,
+    imageAlt: "Couverture - Protocole d'accord UPR",
+    excerpt:
+      "Le Protocole d'accord encadre la vie interne de l'UPR : organisation, discipline, gouvernance et principes de conduite des responsables et des militants.",
+    fullContent: [
+      "Le Protocole d'accord fixe les règles de fonctionnement interne de l'Union des Patriotes pour la République et traduit l'engagement collectif des fondateurs.",
+      "Il définit les principes de discipline, de transparence et de responsabilité qui doivent guider l'action des dirigeants, des cadres et des militants du parti.",
+      "Le texte rappelle la primauté de l'intérêt national, le respect des institutions de la République et le rejet des antivaleurs dans la vie publique.",
+      "Il consacre également les bases organisationnelles permettant à l'UPR de se déployer sur l'ensemble du territoire national au service du peuple congolais.",
+    ],
   },
 ] as const;
 

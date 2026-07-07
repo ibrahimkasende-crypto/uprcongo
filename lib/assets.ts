@@ -1,4 +1,4 @@
-﻿export const ASSETS_VERSION = "20260707d";
+export const ASSETS_VERSION = "20260707f";
 
 const BASE = "/images";
 
@@ -36,6 +36,11 @@ export const IMAGES = {
     skyline: getImageUrl(`${BASE}/kinshasa/kinshasa-skyline.webp`),
     fleuve: getImageUrl(`${BASE}/kinshasa/fleuve-congo.webp`),
     avenue: getImageUrl(`${BASE}/kinshasa/avenue-kinshasa.webp`),
+  },
+  rdc: {
+    kisangani: getImageUrl(`${BASE}/rdc/kisangani.webp`),
+    goma: getImageUrl(`${BASE}/rdc/goma.webp`),
+    lubumbashi: getImageUrl(`${BASE}/rdc/lubumbashi.webp`),
   },
   values: {
     dieu: getImageUrl(`${BASE}/values/dieu.webp`),

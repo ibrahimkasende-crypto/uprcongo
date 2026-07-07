@@ -1,6 +1,5 @@
-﻿"use client";
+"use client";
 
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface AnimatedCardProps {
@@ -11,17 +10,15 @@ interface AnimatedCardProps {
 
 export function AnimatedCard({ children, className, delay = 0 }: AnimatedCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay }}
+    <div
       className={cn(
-        "glass-strong rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1",
+        "glass-strong rounded-2xl p-6 transition-shadow duration-300 hover:shadow-xl",
+        "animate-fade-in-up motion-reduce:animate-none",
         className
       )}
+      style={delay > 0 ? { animationDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
