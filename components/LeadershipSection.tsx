@@ -1,28 +1,9 @@
-﻿import Image from "next/image";
+"use client";
+
+import Image from "next/image";
 import { AnimatedCard } from "@/components/AnimatedCard";
 import { SectionTitle } from "@/components/SectionTitle";
-import { IMAGES } from "@/lib/assets";
-
-const LEADERS = [
-  {
-    name: "Coordinateur National",
-    role: "Direction exécutive",
-    image: IMAGES.leadership.coordinateurNational,
-    alt: "Silhouette placeholder - Coordinateur National UPR (CN)",
-  },
-  {
-    name: "Secrétaire Général",
-    role: "Secrétariat général",
-    image: IMAGES.leadership.secretaireGeneral,
-    alt: "Silhouette placeholder - Secrétaire Général UPR (SG)",
-  },
-  {
-    name: "Responsable Provincial",
-    role: "Coordination provinciale",
-    image: IMAGES.leadership.responsableProvincial,
-    alt: "Silhouette placeholder - Responsable Provincial UPR (RP)",
-  },
-] as const;
+import { COORDINATION_NATIONALE } from "@/lib/constants";
 
 export function LeadershipSection() {
   return (
@@ -31,27 +12,33 @@ export function LeadershipSection() {
         <SectionTitle
           eyebrow="Organisation"
           title="Direction et coordination"
-          subtitle="Photos officielles à fournir — silhouettes institutionnelles en attendant."
+          subtitle="La coordination nationale accompagne l'organisation et la mobilisation du parti."
         />
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {LEADERS.map((leader, i) => (
-            <AnimatedCard key={leader.name} delay={i * 0.1} className="overflow-hidden p-0">
-              <div className="relative aspect-[4/5] w-full">
-                <Image
-                  src={leader.image}
-                  alt={leader.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-              <div className="p-5 text-center">
-                <h3 className="text-lg font-bold text-upr-navy dark:text-white">{leader.name}</h3>
-                <p className="text-sm text-muted-foreground">{leader.role}</p>
-              </div>
-            </AnimatedCard>
-          ))}
-        </div>
+
+        <AnimatedCard className="overflow-hidden p-0">
+          <div className="grid items-stretch lg:grid-cols-2">
+            <div className="group relative aspect-[3/4] max-h-[560px] w-full overflow-hidden sm:aspect-[4/5] lg:max-h-none lg:min-h-[520px]">
+              <Image
+                src={COORDINATION_NATIONALE.image}
+                alt={COORDINATION_NATIONALE.imageAlt}
+                fill
+                priority
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" aria-hidden="true" />
+            </div>
+            <div className="flex flex-col justify-center p-6 sm:p-8">
+              <p className="eyebrow mb-2 text-upr-gold">{COORDINATION_NATIONALE.category}</p>
+              <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-upr-blue dark:text-upr-gold">
+                {COORDINATION_NATIONALE.role}
+              </p>
+              <h3 className="mb-2 text-2xl font-bold text-upr-navy dark:text-white">{COORDINATION_NATIONALE.name}</h3>
+              <p className="mb-3 text-base font-medium text-upr-navy/80 dark:text-white/85">{COORDINATION_NATIONALE.title}</p>
+              <p className="text-sm leading-relaxed text-muted-foreground">{COORDINATION_NATIONALE.excerpt}</p>
+            </div>
+          </div>
+        </AnimatedCard>
       </div>
     </section>
   );

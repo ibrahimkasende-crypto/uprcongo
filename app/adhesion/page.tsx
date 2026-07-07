@@ -7,7 +7,7 @@ import { AnimatedCard } from "@/components/AnimatedCard";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { IMAGES } from "@/lib/assets";
-import { ADHESION_ENGAGEMENTS, ADHESION_REASONS, CONTACT } from "@/lib/constants";
+import { ADHESION_BLOCK, ADHESION_ENGAGEMENTS, ADHESION_REASONS, CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Adhésion UPR",
@@ -59,12 +59,12 @@ export default function AdhesionPage() {
       <section className="section-padding">
         <div className="container-upr grid gap-6 md:grid-cols-3">
           {[
+            { src: ADHESION_BLOCK.image, alt: ADHESION_BLOCK.imageAlt },
             { src: IMAGES.adhesion.engagement, alt: "Engagement citoyen - adhésion UPR" },
             { src: IMAGES.adhesion.communaute, alt: "Communauté de militants UPR" },
-            { src: IMAGES.adhesion.formulaire, alt: "Rejoindre l'UPR - formulaire d'adhésion" },
           ].map((img) => (
-            <div key={img.src} className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-              <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+            <div key={img.src} className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-black/10 dark:border-white/12">
+              <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.02]" sizes="(max-width: 768px) 100vw, 33vw" />
             </div>
           ))}
         </div>
@@ -73,7 +73,17 @@ export default function AdhesionPage() {
       <section id="formulaire-adhesion" className="section-padding bg-white dark:bg-upr-dark/50">
         <div className="container-upr grid gap-12 lg:grid-cols-2">
           <div>
-            <SectionTitle eyebrow="Formulaire d'adhésion" title="Demande d'adhésion" />
+            <SectionTitle eyebrow="Formulaire d'adhésion" title={ADHESION_BLOCK.title} />
+            <div className="group relative mb-6 aspect-[16/10] overflow-hidden rounded-2xl border border-black/10 dark:border-white/12 lg:hidden">
+              <Image
+                src={ADHESION_BLOCK.image}
+                alt={ADHESION_BLOCK.imageAlt}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                sizes="100vw"
+              />
+            </div>
+            <p className="mb-6 text-muted-foreground">{ADHESION_BLOCK.excerpt}</p>
             <p className="mb-6 text-muted-foreground">
               Remplissez le formulaire ci-contre. Votre demande sera transmise au coordinateur national via WhatsApp pour traitement selon les procédures internes du parti.
             </p>

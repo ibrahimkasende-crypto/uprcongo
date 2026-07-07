@@ -135,7 +135,28 @@ export const PARTY_STATS = [
   { label: "Axes du projet", value: 9, suffix: "" },
 ] as const;
 
-export const NEWS_CATEGORIES = ["Tous", "Mobilisation", "Déclaration", "Communiqué"] as const;
+export const NEWS_CATEGORIES = ["Tous", "Mobilisation", "Déclaration", "Communiqué", "Vie du parti"] as const;
+
+export const COORDINATION_NATIONALE = {
+  title: "Coordination nationale de l'UPR",
+  name: "Semences Engita",
+  role: "Coordinateur national",
+  category: "Vie du parti" as const,
+  excerpt:
+    "La coordination nationale accompagne l'organisation, la mobilisation et le suivi des activités du parti dans un esprit de discipline, de responsabilité et de service.",
+  image: IMAGES.coordination.coordon,
+  imageAlt: "Semences Engita, Coordinateur national de l'UPR",
+  imagePosition: "top" as const,
+  imageAspect: "portrait" as const,
+};
+
+export const ADHESION_BLOCK = {
+  title: "Rejoindre l'UPR",
+  excerpt:
+    "Rejoignez une famille politique engagée pour le Congo, la justice, la souveraineté nationale et le service désintéressé de la nation.",
+  image: IMAGES.adhesion.membres,
+  imageAlt: "Membres de l'UPR après une rencontre de mobilisation",
+};
 
 export const PROJECT_AXES = [
   "Résurrection du Congo",
@@ -195,27 +216,22 @@ export const PROJECT_QUOTES = [
 export const NEWS = [
   {
     slug: "mobilisation-patriotique-service-congo",
-    title: "Mobilisation patriotique autour du mot d'ordre Servir sans se servir",
-    date: "2026-06-20",
+    title: 'Mobilisation patriotique autour du mot d\'ordre "Servir sans se servir"',
+    date: "2026-04-18",
     category: "Mobilisation",
     featured: true,
-    image: NEWS_IMAGE_BY_CATEGORY.Mobilisation,
-    imageAlt: "Mobilisation officielle de l'UPR",
+    image: IMAGES.actualites.mobilisationPatriotique,
+    imageAlt: "Mobilisation patriotique de l'UPR autour du mot d'ordre Servir sans se servir",
     excerpt:
       "L'UPR rappelle son appel à l'engagement citoyen et républicain pour remettre le service du Congo au centre de l'action publique.",
     author: "UPR - Union des Patriotes pour la République",
-  },
-  {
-    slug: "declaration-projet-societe-upr",
-    title: "Déclaration de l'UPR sur la résurrection du Congo",
-    date: "2026-06-14",
-    category: "Déclaration",
-    featured: false,
-    image: NEWS_IMAGE_BY_CATEGORY.Déclaration,
-    imageAlt: "Déclaration officielle de l'UPR",
-    excerpt:
-      "Le parti réaffirme les grandes lignes de son projet de société consacré à la renaissance politique, sociale, économique et culturelle du Congo.",
-    author: "UPR - Union des Patriotes pour la République",
+    fullContent: [
+      "L'Union des Patriotes pour la République a organisé une rencontre de mobilisation patriotique autour de son mot d'ordre : Servir sans se servir.",
+      "Cette activité s'inscrit dans la volonté du parti de sensibiliser les citoyens à l'importance de l'engagement public, de la responsabilité individuelle et du service désintéressé de la nation.",
+      "Pour l'UPR, la politique doit redevenir un espace de service, de discipline, de vérité et de responsabilité envers le peuple congolais.",
+      "Les participants ont été invités à placer l'intérêt général au-dessus des intérêts personnels, à rejeter les antivaleurs et à participer activement à la reconstruction morale, sociale et politique du Congo.",
+      "L'UPR réaffirme que chaque citoyen a un rôle à jouer dans la défense de la patrie, la promotion de la justice et la consolidation d'un État réellement au service du peuple.",
+    ],
   },
   {
     slug: "communique-officiel-upr",
@@ -223,11 +239,52 @@ export const NEWS = [
     date: "2026-06-01",
     category: "Communiqué",
     featured: false,
-    image: NEWS_IMAGE_BY_CATEGORY.Communiqué,
-    imageAlt: "Communiqué officiel de l'UPR",
+    image: IMAGES.actualites.communiqueOfficiel,
+    imageAlt: "Communiqué officiel de l'UPR sur la souveraineté nationale et l'État de droit",
     excerpt:
       "L'UPR publie un communiqué officiel rappelant son attachement à la souveraineté nationale, à l'État de droit et à la mobilisation patriotique.",
     author: "UPR - Union des Patriotes pour la République",
+    fullContent: [
+      "L'Union des Patriotes pour la République réaffirme son attachement à la souveraineté nationale, à l'État de droit, à la justice sociale et à la défense des intérêts fondamentaux du peuple congolais.",
+      "À travers ce communiqué, l'UPR rappelle que la construction d'un Congo fort passe par la responsabilité des dirigeants, la participation citoyenne et le respect des institutions républicaines.",
+      "Le parti invite les Congolaises et Congolais à demeurer vigilants, mobilisés et engagés pour préserver l'unité nationale, protéger les ressources du pays et promouvoir une gouvernance fondée sur la vérité, la justice et le service.",
+      "L'UPR appelle également ses membres, sympathisants et patriotes à poursuivre le travail de sensibilisation dans le calme, la discipline et le respect des lois de la République.",
+      "Fidèle à sa devise Dieu - Patrie - Justice, l'UPR demeure engagée à servir le Congo sans se servir.",
+    ],
+  },
+  {
+    slug: "declaration-politique-president",
+    title: "Déclaration politique du Président national",
+    date: "2026-06-10",
+    category: "Déclaration",
+    featured: false,
+    image: IMAGES.president.declaration,
+    imageAlt: "Déclaration politique du Président national de l'UPR",
+    excerpt:
+      "Dans une déclaration politique, le Président national de l'UPR appelle à la vigilance patriotique, à la protection de la souveraineté nationale et à la défense prioritaire des intérêts des Congolais.",
+    author: "UPR - Union des Patriotes pour la République",
+    fullContent: [
+      "Dans une déclaration politique, le Président national de l'UPR, Prof. Rev. Julien C. K. Ciakudia Sr., appelle à une vigilance accrue sur les questions de souveraineté nationale, de sécurité diplomatique et de défense des intérêts fondamentaux du peuple congolais.",
+      "Selon le Président national de l'UPR, certaines personnalités influentes autour des institutions congolaises devraient faire l'objet d'une attention particulière lorsque leurs orientations ou leurs relations supposées peuvent avoir un impact sur la souveraineté nationale.",
+      "Dans ce cadre, Prof. Rev. Julien C. K. Ciakudia Sr. évoque le cas de l'ambassadeur Jhon Nyakeru Kalunga, dont il conteste la proximité politique et diplomatique supposée avec certains intérêts étrangers. Il appelle les autorités compétentes à clarifier publiquement les responsabilités, les influences et les choix qui auraient accompagné le processus d'intégration de la République Démocratique du Congo à la Communauté d'Afrique de l'Est.",
+      "Le Président national de l'UPR affirme également que la vie politique congolaise doit être guidée par la transparence, l'intérêt général et la protection des citoyens. Il invite les responsables publics à placer la souveraineté nationale au-dessus des calculs personnels, familiaux ou partisans.",
+      "Dans le même esprit, Prof. Rev. Julien C. K. Ciakudia Sr. adresse un message au Président de la République, l'appelant à accorder une attention prioritaire à la situation des Congolais vivant à l'étranger, notamment ceux établis en Afrique du Sud. Selon lui, la protection de la vie, de la dignité et des droits des Congolais doit toujours passer avant toute distraction médiatique ou sportive.",
+      "Pour l'UPR, la patrie se sert avec responsabilité. Le parti rappelle que l'État doit défendre ses citoyens partout où ils vivent, préserver la souveraineté du Congo et renforcer la confiance entre les institutions et le peuple.",
+      "L'UPR réaffirme son attachement à la devise Dieu - Patrie - Justice, ainsi qu'à son mot d'ordre : Servir sans se servir.",
+    ],
+  },
+  {
+    slug: "coordination-nationale-upr",
+    title: COORDINATION_NATIONALE.name,
+    date: "2026-05-15",
+    category: COORDINATION_NATIONALE.category,
+    featured: false,
+    image: COORDINATION_NATIONALE.image,
+    imageAlt: COORDINATION_NATIONALE.imageAlt,
+    excerpt: COORDINATION_NATIONALE.excerpt,
+    author: "UPR - Union des Patriotes pour la République",
+    imagePosition: COORDINATION_NATIONALE.imagePosition,
+    imageAspect: COORDINATION_NATIONALE.imageAspect,
   },
 ] as const;
 

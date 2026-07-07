@@ -1,4 +1,4 @@
-﻿export const ASSETS_VERSION = "20260707";
+﻿export const ASSETS_VERSION = "20260707d";
 
 const BASE = "/images";
 
@@ -22,6 +22,7 @@ export const IMAGES = {
     square: getImageUrl(`${BASE}/president/president-upr-square.webp`),
     wide: getImageUrl(`${BASE}/president/president-upr-wide.webp`),
     dark: getImageUrl(`${BASE}/president/president-upr-dark.webp`),
+    declaration: getImageUrl(`${BASE}/president/photo-president-declaration.webp`),
   },
   backgrounds: {
     hero: getImageUrl(`${BASE}/backgrounds/upr-kinshasa-limete-hero.webp`),
@@ -37,14 +38,18 @@ export const IMAGES = {
     avenue: getImageUrl(`${BASE}/kinshasa/avenue-kinshasa.webp`),
   },
   values: {
-    dieu: getImageUrl(`${BASE}/values/dieu-patrie.webp`),
-    patrie: getImageUrl(`${BASE}/values/patrie-congo.webp`),
-    justice: getImageUrl(`${BASE}/values/justice-etat-droit.webp`),
+    dieu: getImageUrl(`${BASE}/values/dieu.webp`),
+    patrie: getImageUrl(`${BASE}/values/patrie.webp`),
+    justice: getImageUrl(`${BASE}/values/justice.webp`),
   },
   adhesion: {
     engagement: getImageUrl(`${BASE}/adhesion/engagement-citoyen.webp`),
     communaute: getImageUrl(`${BASE}/adhesion/communaute-upr.webp`),
     formulaire: getImageUrl(`${BASE}/adhesion/adhesion-banner.webp`),
+    membres: getImageUrl(`${BASE}/adhesion/membres-upr.webp`),
+  },
+  coordination: {
+    coordon: getImageUrl(`${BASE}/coordination/photo-coordon.webp`),
   },
   documents: {
     acteFondateur: getImageUrl(`${BASE}/documents/acte-fondateur.webp`),
@@ -70,14 +75,16 @@ export const IMAGES = {
     declaration: getImageUrl(`${BASE}/actualites/declaration.webp`),
     meeting: getImageUrl(`${BASE}/actualites/meeting.webp`),
     vieParti: getImageUrl(`${BASE}/actualites/vie-parti.webp`),
+    mobilisationPatriotique: getImageUrl(`${BASE}/actualites/mobilisation-patriotique.webp`),
+    communiqueOfficiel: getImageUrl(`${BASE}/actualites/communique-officiel.webp`),
   },
 } as const;
 
 export const NEWS_IMAGE_BY_CATEGORY: Record<string, string> = {
-  Mobilisation: IMAGES.actualites.mobilisation,
-  Déclaration: IMAGES.actualites.declaration,
-  Communiqué: IMAGES.actualites.communique,
+  Mobilisation: IMAGES.actualites.mobilisationPatriotique,
+  Déclaration: IMAGES.president.declaration,
+  Communiqué: IMAGES.actualites.communiqueOfficiel,
   Activité: IMAGES.actualites.activite,
   Réunion: IMAGES.actualites.meeting,
-  "Vie du parti": IMAGES.actualites.vieParti,
+  "Vie du parti": IMAGES.coordination.coordon,
 };

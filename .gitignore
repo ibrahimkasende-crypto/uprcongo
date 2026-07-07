@@ -7,7 +7,11 @@ out
 .DS_Store
 npm-debug.log
 yarn-error.log
-*.log
+pnpm-debug.log
+.vercel
 Thumbs.db
+*.log
 public/images/_backup
 patch-temp.js
+scripts/patch-*.mjs
+scripts/fix-*.mjs

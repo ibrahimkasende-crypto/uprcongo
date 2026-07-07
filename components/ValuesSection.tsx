@@ -10,9 +10,18 @@ import { VALUES } from "@/lib/constants";
 const VALUE_ICONS = [Cross, Flag, Scale] as const;
 
 const VALUE_IMAGES = [
-  { src: IMAGES.values.dieu, alt: "Symbole de la référence morale - Dieu" },
-  { src: IMAGES.values.patrie, alt: "Paysage africain symbolisant la Patrie congolaise" },
-  { src: IMAGES.values.justice, alt: "Balance de la justice et de l'État de droit" },
+  {
+    src: IMAGES.values.dieu,
+    alt: "Symbole de Dieu, dignité humaine, vérité et responsabilité devant la nation",
+  },
+  {
+    src: IMAGES.values.patrie,
+    alt: "Symbole de la patrie, amour du Congo et souveraineté nationale",
+  },
+  {
+    src: IMAGES.values.justice,
+    alt: "Symbole de la justice, primauté du droit et égalité des citoyens",
+  },
 ] as const;
 
 export function ValuesSection() {
@@ -38,23 +47,24 @@ export function ValuesSection() {
               <AnimatedCard
                 key={value.title}
                 delay={i * 0.1}
-                className="relative overflow-hidden border border-upr-gold/20 bg-white/95 text-center backdrop-blur-sm dark:bg-upr-dark/80"
+                className="group relative overflow-hidden border border-upr-gold/20 bg-white/95 text-center backdrop-blur-sm dark:bg-upr-dark/80"
               >
-                <div className="relative -mx-6 -mt-6 mb-4 h-32 overflow-hidden">
+                <div className="relative -mx-6 -mt-6 mb-4 h-44 overflow-hidden rounded-t-2xl">
                   <Image
                     src={bgImage.src}
                     alt={bgImage.alt}
                     fill
-                    className="object-cover opacity-80"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent dark:from-upr-dark dark:via-upr-dark/60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/20 to-black/10" />
+                  <div className="absolute inset-0 bg-upr-navy/20 dark:bg-upr-navy/35" />
                 </div>
                 <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-upr-blue/10 dark:bg-upr-gold/15">
                   <Icon className="h-7 w-7 text-upr-blue dark:text-upr-gold" aria-hidden />
                 </div>
                 <h3 className="mb-3 text-xl font-bold text-upr-navy dark:text-white">{value.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{value.description}</p>
+                <p className="text-sm leading-relaxed text-[#4a5568] dark:text-[#a0aec0]">{value.description}</p>
               </AnimatedCard>
             );
           })}
