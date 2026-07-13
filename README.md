@@ -2,7 +2,7 @@
 
 Site officiel de l'UPR Congo — Union des Patriotes pour la République. Plateforme institutionnelle moderne présentant le parti, sa devise Dieu - Patrie - Justice, son projet de société, ses actualités et son formulaire d'adhésion.
 
-- Domaine : https://uprcongo.cd
+- Domaine : https://uprcongo.com
 - Devise : Dieu - Patrie - Justice
 - Slogan : Servir sans se servir
 
@@ -34,7 +34,7 @@ Branche de deploiement statique : hostinger-deploy
 
 1. Aller dans Hostinger hPanel.
 2. Aller dans Websites.
-3. Choisir le site uprcongo.cd.
+3. Choisir le site uprcongo.com.
 4. Cliquer sur Dashboard.
 5. Aller dans Advanced.
 6. Ouvrir Git.
@@ -81,7 +81,7 @@ gh repo create ibrahimkasende-crypto/uprcongo --public --source=. --remote=origi
 
 Le site utilise Decap CMS avec Netlify Identity et Git Gateway.
 
-URL : https://uprcongo.cd/admin/
+URL : https://uprcongo.com/admin/
 
 ## Etapes a faire dans Netlify
 

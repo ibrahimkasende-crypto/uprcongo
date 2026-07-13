@@ -9,8 +9,8 @@ public_folder: "/uploads"
 
 locale: "fr"
 
-site_url: "https://uprcongo.cd"
-display_url: "https://uprcongo.cd"
+site_url: "https://uprcongo.com"
+display_url: "https://uprcongo.com"
 logo_url: "/images/logo/logo-upr.png"
 
 collections:

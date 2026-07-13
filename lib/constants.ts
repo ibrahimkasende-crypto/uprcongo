@@ -2,7 +2,7 @@ import { ASSETS_VERSION, IMAGES, NEWS_IMAGE_BY_CATEGORY } from "@/lib/assets";
 
 export { ASSETS_VERSION, IMAGES, NEWS_IMAGE_BY_CATEGORY };
 
-export const SITE_URL = "https://uprcongo.cd";
+export const SITE_URL = "https://uprcongo.com";
 
 // Remplacer 243XXXXXXXXX par le vrai numéro WhatsApp du Coordinateur National, sans le signe +.
 export const SITE_BACKGROUND = IMAGES.backgrounds.hero;

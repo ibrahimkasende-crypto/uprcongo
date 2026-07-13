@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://uprcongo.cd/sitemap.xml
+Sitemap: https://uprcongo.com/sitemap.xml

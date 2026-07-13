@@ -54,8 +54,8 @@ async function findSite() {
     const aliases = (site.domain_aliases || []).map((value) => String(value).toLowerCase());
     return (
       name.includes("uprcongo") ||
-      domain === "uprcongo.cd" ||
-      aliases.includes("uprcongo.cd") ||
+      domain === "uprcongo.com" ||
+      aliases.includes("uprcongo.com") ||
       String(site.url || "").includes("uprcongo")
     );
   });

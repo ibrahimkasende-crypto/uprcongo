@@ -13,8 +13,8 @@ publish_mode: editorial_workflow
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
-site_url: "https://uprcongo.cd"
-display_url: "https://uprcongo.cd"
+site_url: "https://uprcongo.com"
+display_url: "https://uprcongo.com"
 logo_url: "/assets/images/logo-upr.png"
 
 collections:
