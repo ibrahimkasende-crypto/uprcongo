@@ -15,3 +15,5 @@ public/images/_backup
 patch-temp.js
 scripts/patch-*.mjs
 scripts/fix-*.mjs
+
+.netlify

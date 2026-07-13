@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Mobilisation patriotique de l'UPR</title>
+  <desc id="desc">Illustration institutionnelle avec le drapeau congolais stylisé et des citoyens rassemblés.</desc>
+  <rect width="960" height="620" fill="#F8FAFC"/>
+  <rect x="0" y="0" width="960" height="620" fill="#003B8E"/>
+  <path d="M0 500 960 80v150L0 620z" fill="#CE1126"/>
+  <path d="M0 470 960 50v36L0 506z" fill="#FCD116"/>
+  <circle cx="130" cy="130" r="52" fill="#FCD116"/>
+  <g fill="#FFFFFF" opacity=".95">
+    <circle cx="430" cy="352" r="38"/>
+    <circle cx="520" cy="332" r="44"/>
+    <circle cx="615" cy="360" r="36"/>
+    <path d="M345 500c18-70 65-105 126-105s109 35 126 105z"/>
+    <path d="M470 500c13-84 70-128 143-128s128 44 143 128z" opacity=".9"/>
+  </g>
+  <rect x="72" y="420" width="300" height="26" rx="13" fill="#FCD116"/>
+  <rect x="72" y="462" width="225" height="18" rx="9" fill="#FFFFFF" opacity=".8"/>
+</svg>

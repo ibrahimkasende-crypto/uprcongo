@@ -77,3 +77,69 @@ gh repo create ibrahimkasende-crypto/uprcongo --public --source=. --remote=origi
 - Ne jamais committer .env avec des secrets
 - Ne jamais committer node_modules ni out sur main
 - Ne pas modifier manuellement hostinger-deploy
+# Configuration de l'espace admin
+
+Le site utilise Decap CMS avec Netlify Identity et Git Gateway.
+
+URL : https://uprcongo.cd/admin/
+
+## Etapes a faire dans Netlify
+
+1. Aller dans Netlify.
+2. Ouvrir le site UPR Congo.
+3. Aller dans Site configuration.
+4. Activer Identity.
+5. Dans les parametres Identity, mettre Registration sur : Invite only
+6. Activer Git Gateway.
+7. Inviter les utilisateurs autorises :
+
+President national : ciakudia@gmail.com
+
+Coordinateur national : semenceengita@gmail.com
+
+IT : colettebansompili011@gmail.com
+
+8. Chaque utilisateur recoit un email d'invitation.
+9. Chaque utilisateur cree son mot de passe.
+10. Ensuite, il peut aller sur : /admin/
+11. Il se connecte avec son email et son mot de passe.
+12. Il peut ajouter, modifier ou supprimer les contenus.
+
+Important : ne pas creer un mot de passe unique pour tout le monde. Ne pas ecrire les mots de passe dans le code. Chaque utilisateur doit avoir son propre compte.
+
+## Publier un article
+
+1. Aller sur /admin/
+2. Se connecter
+3. Cliquer sur "Actualites UPR"
+4. Cliquer sur "New Actualites UPR"
+5. Remplir : titre, date, categorie, image, resume, contenu complet.
+6. Cliquer sur Save.
+7. Publier.
+
+## Modifier un article
+
+1. Aller sur /admin/
+2. Ouvrir "Actualites UPR"
+3. Selectionner l'article
+4. Modifier le contenu
+5. Sauvegarder
+6. Publier.
+
+## Supprimer un article
+
+1. Aller sur /admin/
+2. Ouvrir l'article
+3. Cliquer sur Delete
+4. Confirmer
+5. Le site se mettra a jour apres rebuild.
+
+## Si l'admin ne fonctionne pas
+
+Verifier : Netlify Identity active, Git Gateway active, Registration en Invite only, les utilisateurs invites, le depot GitHub connecte, le backend git-gateway dans public/admin/config.yml, le domaine du site correctement configure.
+
+## Deploiement Netlify
+
+- Build : npm run build
+- Publish : out
+- Decap CMS cree/modifie les fichiers dans GitHub et Netlify rebuild automatiquement a chaque commit sur main.

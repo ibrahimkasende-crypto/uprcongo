@@ -1,4 +1,4 @@
-﻿/** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
   trailingSlash: true,
@@ -8,6 +8,9 @@ const nextConfig = {
       {
         pathname: "/images/**",
         search: "?v=*",
+      },
+      {
+        pathname: "/uploads/**",
       },
     ],
   },

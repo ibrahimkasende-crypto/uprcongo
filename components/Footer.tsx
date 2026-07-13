@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { CONTACT, NAVIGATION, PARTY } from "@/lib/constants";
 
@@ -69,6 +69,13 @@ export function Footer() {
             Mentions légales
           </Link>
         </div>
+      </div>
+      <div className="border-t border-white/10 py-4 text-center">
+        <p className="text-xs text-white/40">
+          <Link href="/admin/" className="transition-colors hover:text-white/60">
+            Administration
+          </Link>
+        </p>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-sm text-white/60">
         © {new Date().getFullYear()} {PARTY.fullName}. Tous droits réservés.

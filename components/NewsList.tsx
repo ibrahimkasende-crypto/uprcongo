@@ -2,16 +2,21 @@
 
 import { useMemo, useState } from "react";
 import { NewsCardsGrid } from "@/components/NewsCardsGrid";
-import { NEWS, NEWS_CATEGORIES } from "@/lib/constants";
+import type { ActualiteItem } from "@/lib/content";
+import { NEWS_CATEGORIES } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-export function NewsList() {
+interface NewsListProps {
+  items: ActualiteItem[];
+}
+
+export function NewsList({ items }: NewsListProps) {
   const [activeCategory, setActiveCategory] = useState<string>("Tous");
 
   const filteredNews = useMemo(() => {
-    if (activeCategory === "Tous") return NEWS;
-    return NEWS.filter((item) => item.category === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === "Tous") return items;
+    return items.filter((item) => item.category === activeCategory);
+  }, [activeCategory, items]);
 
   return (
     <>

@@ -9,7 +9,10 @@
                     "start":  "next start",
                     "lint":  "next lint",
                     "images:setup":  "node scripts/setup-images.mjs",
-                    "dev:clean":  "node -e \"require(\u0027fs\u0027).rmSync(\u0027.next\u0027,{recursive:true,force:true})\" \u0026\u0026 next dev"
+                    "dev:clean":  "node -e \"require(\u0027fs\u0027).rmSync(\u0027.next\u0027,{recursive:true,force:true})\" \u0026\u0026 next dev",
+                    "prebuild":  "node scripts/generate-content.js",
+                    "predev":  "node scripts/generate-content.js",
+                    "content:generate":  "node scripts/generate-content.js"
                 },
     "dependencies":  {
                          "@hookform/resolvers":  "^5.0.1",

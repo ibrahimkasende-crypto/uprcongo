@@ -10,8 +10,10 @@ import { NewsCardsGrid } from "@/components/NewsCardsGrid";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { ADHESION_BLOCK } from "@/lib/constants";
+import { getActualites } from "@/lib/content";
 
 export default function HomePage() {
+  const actualites = getActualites().slice(0, 4);
   return (
     <>
       <HeroSection />
@@ -32,7 +34,7 @@ export default function HomePage() {
               Toutes les actualités →
             </Link>
           </div>
-          <NewsCardsGrid />
+          <NewsCardsGrid items={actualites} />
         </div>
       </section>
 

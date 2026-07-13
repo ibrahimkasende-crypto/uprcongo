@@ -5,12 +5,13 @@
     "date": "2026-06-08T12:00:00+01:00",
     "categorie": "Événement",
     "featured": false,
-    "image": "assets/uploads/evenement-assemblee.svg",
+    "image": "/uploads/evenement-assemblee.svg",
     "image_alt": "Assemblée officielle de l’UPR à Kinshasa",
     "description_courte": "Rencontre d’information et de mobilisation autour de la devise Dieu - Patrie - Justice et du projet de société de l’UPR.",
-    "auteur": "UPR - Union des Patriotes pour la République",
-    "date_evenement": "2026-06-29T14:00:00+01:00",
+    "description": "Rencontre d’information et de mobilisation autour de la devise Dieu - Patrie - Justice et du projet de société de l’UPR.",
+    "auteur": "Secrétariat National de l'Information et Presse / UPR",
+    "markdown": "## Objectif de la rencontre\nCette assemblée citoyenne vise à présenter les orientations du parti, à écouter les préoccupations des membres et à renforcer l’organisation de terrain.\n\n## Points prévus\n- Présentation de l’identité politique de l’UPR.\n- Échange sur le projet de société.\n- Informations sur les modalités d’adhésion.\n- Mobilisation autour du mot d’ordre Congolais, prends ton pays en mains.",
     "lieu": "Kinshasa, République Démocratique du Congo",
-    "url": "evenements/assemblee-citoyenne-kinshasa/"
+    "province": ""
   }
 ]
