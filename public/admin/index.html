@@ -6,20 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" href="/images/logo/favicon.png" />
+    <style>
+      #admin-login-fallback {
+        display: none;
+        max-width: 28rem;
+        margin: 4rem auto;
+        padding: 2rem;
+        border: 1px solid #d9e2f2;
+        border-radius: 1rem;
+        font-family: Inter, system-ui, sans-serif;
+        text-align: center;
+        color: #0b1f44;
+      }
+      #admin-login-fallback h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      #admin-login-fallback p {
+        margin-bottom: 1.25rem;
+        color: #4b5d7a;
+        line-height: 1.5;
+      }
+      #admin-login-fallback button {
+        background: #003b8e;
+        color: #fff;
+        border: 0;
+        border-radius: 999px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #admin-login-fallback button:hover {
+        background: #c8102e;
+      }
+    </style>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
+    <div id="admin-login-fallback" role="dialog" aria-labelledby="admin-login-title">
+      <h1 id="admin-login-title">Administration UPR Congo</h1>
+      <p>Connectez-vous avec l'adresse email invitée par Netlify pour publier, modifier ou supprimer les articles.</p>
+      <button type="button" id="admin-login-button">Se connecter</button>
+    </div>
+
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function (user) {
-          if (!user) {
+      (function () {
+        var fallback = document.getElementById("admin-login-fallback");
+        var loginButton = document.getElementById("admin-login-button");
+
+        function openLogin(mode) {
+          if (!window.netlifyIdentity) {
+            fallback.style.display = "block";
+            return;
+          }
+          window.netlifyIdentity.open(mode || "login");
+        }
+
+        if (loginButton) {
+          loginButton.addEventListener("click", function () {
+            openLogin("login");
+          });
+        }
+
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", function (user) {
+            if (user) {
+              fallback.style.display = "none";
+              return;
+            }
+
+            fallback.style.display = "block";
+
             window.netlifyIdentity.on("login", function () {
               document.location.href = "/admin/";
             });
-          }
-        });
-      }
+
+            if (window.location.hash.indexOf("invite_token") !== -1) {
+              window.netlifyIdentity.open();
+              return;
+            }
+
+            if (window.location.hash.indexOf("recovery_token") !== -1) {
+              window.netlifyIdentity.open();
+              return;
+            }
+
+            setTimeout(function () {
+              openLogin("login");
+            }, 400);
+          });
+
+          window.netlifyIdentity.on("error", function (error) {
+            console.error("Netlify Identity error:", error);
+            fallback.style.display = "block";
+          });
+        } else {
+          fallback.style.display = "block";
+        }
+      })();
     </script>
   </body>
 </html>
