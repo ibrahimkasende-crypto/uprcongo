@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Déclaration officielle de l'UPR</title>
+  <desc id="desc">Illustration sobre d'un pupitre officiel pour une déclaration politique.</desc>
+  <rect width="960" height="620" fill="#F1F5F9"/>
+  <rect x="0" y="0" width="960" height="220" fill="#003B8E"/>
+  <circle cx="138" cy="112" r="46" fill="#FCD116"/>
+  <rect x="260" y="180" width="440" height="290" rx="12" fill="#FFFFFF"/>
+  <rect x="315" y="240" width="330" height="22" rx="11" fill="#003B8E"/>
+  <rect x="315" y="292" width="260" height="16" rx="8" fill="#94A3B8"/>
+  <rect x="315" y="330" width="300" height="16" rx="8" fill="#CBD5E1"/>
+  <path d="M352 470h256l46 90H306z" fill="#003B8E"/>
+  <path d="M0 560 960 410v210H0z" fill="#CE1126"/>
+  <path d="M0 530 960 380v34L0 564z" fill="#FCD116"/>
+</svg>

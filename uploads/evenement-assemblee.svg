@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">Assemblée de l'UPR</title>
+  <desc id="desc">Illustration d'une salle d'assemblée politique aux couleurs de l'UPR.</desc>
+  <rect width="960" height="620" fill="#F8FAFC"/>
+  <rect x="0" y="0" width="960" height="250" fill="#003B8E"/>
+  <path d="M0 470 960 250v370H0z" fill="#E2E8F0"/>
+  <rect x="200" y="190" width="560" height="150" rx="14" fill="#FFFFFF"/>
+  <rect x="245" y="232" width="300" height="22" rx="11" fill="#003B8E"/>
+  <rect x="245" y="282" width="235" height="16" rx="8" fill="#94A3B8"/>
+  <circle cx="690" cy="264" r="34" fill="#FCD116"/>
+  <g fill="#0F172A" opacity=".85">
+    <circle cx="240" cy="440" r="26"/>
+    <circle cx="325" cy="420" r="28"/>
+    <circle cx="418" cy="448" r="25"/>
+    <circle cx="515" cy="426" r="29"/>
+    <circle cx="610" cy="448" r="25"/>
+    <circle cx="704" cy="420" r="28"/>
+  </g>
+  <path d="M0 552 960 430v190H0z" fill="#CE1126" opacity=".95"/>
+  <path d="M0 524 960 402v32L0 556z" fill="#FCD116"/>
+</svg>
