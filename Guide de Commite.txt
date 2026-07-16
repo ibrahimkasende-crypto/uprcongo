@@ -1,0 +1,3 @@
+git add .
+git commit -m "Ajout article: Titre de l'actualite"
+git push origin main
