@@ -5,10 +5,10 @@
 [build.environment]
   NODE_VERSION = "22"
 
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
+# Les variables Supabase doivent être définies dans Netlify :
+# Site configuration → Environment variables
+# NEXT_PUBLIC_SUPABASE_URL
+# NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 [[headers]]
   for = "/admin/*"

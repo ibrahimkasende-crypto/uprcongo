@@ -1,2 +1,1 @@
-/admin/*  /admin/index.html  200
-/.netlify/identity/*  /.netlify/identity/:splat  200
+# SPA / static export : laisser Next.js gérer les routes admin générées dans out/

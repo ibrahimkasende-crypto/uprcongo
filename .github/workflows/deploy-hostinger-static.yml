@@ -1,17 +1,21 @@
-﻿name: Build and publish static site for Hostinger
+﻿# Ancien workflow Hostinger — désactivé
+# Le site UPR Congo est hébergé sur Netlify.
+# Conservé uniquement pour référence historique.
+
+name: (disabled) Hostinger static publish
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    # Désactivé : ne se lance plus automatiquement sur push main.
+    # Pour réactiver un jour : remettre `push: branches: [main]`
 
 permissions:
   contents: write
 
 jobs:
   build-and-publish:
+    if: false
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
@@ -25,13 +29,10 @@ jobs:
         run: npm install
 
       - name: Build static site
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
         run: npm run build
-
-      - name: Add Hostinger htaccess if available
-        run: |
-          if [ -f public/.htaccess ]; then
-            cp public/.htaccess out/.htaccess
-          fi
 
       - name: Publish out folder to hostinger-deploy branch
         uses: peaceiris/actions-gh-pages@v4

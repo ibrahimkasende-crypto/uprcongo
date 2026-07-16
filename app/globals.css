@@ -261,6 +261,21 @@ body {
   box-shadow: 0 12px 40px rgba(0, 59, 142, 0.12);
 }
 
+.admin-input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.65rem 0.75rem;
+  color: white;
+  outline: none;
+}
+
+.admin-input:focus {
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.35);
+}
+
 .dark .upr-card {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }

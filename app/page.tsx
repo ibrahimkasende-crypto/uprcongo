@@ -6,14 +6,12 @@ import { PresidentSection } from "@/components/PresidentSection";
 import { VisionSection } from "@/components/VisionSection";
 import { StatsSection } from "@/components/StatsSection";
 import { ProjectAxes } from "@/components/ProjectAxes";
-import { NewsCardsGrid } from "@/components/NewsCardsGrid";
+import { PublicNews } from "@/components/PublicNews";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Button } from "@/components/ui/button";
 import { ADHESION_BLOCK } from "@/lib/constants";
-import { getActualites } from "@/lib/content";
 
 export default function HomePage() {
-  const actualites = getActualites().slice(0, 4);
   return (
     <>
       <HeroSection />
@@ -34,7 +32,7 @@ export default function HomePage() {
               Toutes les actualités →
             </Link>
           </div>
-          <NewsCardsGrid items={actualites} />
+          <PublicNews limit={3} />
         </div>
       </section>
 

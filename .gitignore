@@ -3,6 +3,7 @@
 out
 .env
 .env.local
+admin-passwords.local.txt
 .env*.local
 .DS_Store
 npm-debug.log

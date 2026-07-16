@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { NetlifyIdentity } from "@/components/NetlifyIdentity";
 import { IMAGES } from "@/lib/assets";
 import { PARTY, SITE_URL } from "@/lib/constants";
 import "./globals.css";
@@ -67,7 +66,6 @@ export default function RootLayout({
           <main id="contenu">{children}</main>
           <Footer />
           <WhatsAppButton />
-          <NetlifyIdentity />
         </ThemeProvider>
       </body>
     </html>

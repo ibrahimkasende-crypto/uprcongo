@@ -4,6 +4,13 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "qgsslaearcbkmyoqzhmu.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
+    ],
     localPatterns: [
       {
         pathname: "/images/**",

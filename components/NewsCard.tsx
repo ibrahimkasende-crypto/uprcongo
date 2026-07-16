@@ -54,7 +54,7 @@ export function NewsCard({
   return (
     <AnimatedCard delay={delay} className={featured ? "lg:col-span-2" : ""}>
       <article className="flex flex-col gap-4">
-        <Link href={`/actualites/${slug}/`} className="group relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/12">
+        <Link href={`/actualites/article/?slug=${encodeURIComponent(slug)}`} className="group relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/12">
           <Image
             src={image}
             alt={imageAlt}
@@ -77,14 +77,14 @@ export function NewsCard({
             <time dateTime={date}>{formattedDate}</time>
           </div>
           <h3 className={`font-bold text-upr-navy dark:text-white ${featured ? "text-2xl" : "text-lg"}`}>
-            <Link href={`/actualites/${slug}/`} className="transition-colors hover:text-upr-blue dark:hover:text-upr-gold">
+            <Link href={`/actualites/article/?slug=${encodeURIComponent(slug)}`} className="transition-colors hover:text-upr-blue dark:hover:text-upr-gold">
               {title}
             </Link>
           </h3>
           <p className="text-sm leading-relaxed text-muted-foreground">{excerpt}</p>
 
           <Link
-            href={`/actualites/${slug}/`}
+            href={`/actualites/article/?slug=${encodeURIComponent(slug)}`}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-upr-blue transition-colors hover:text-upr-red dark:text-upr-gold dark:hover:text-white"
           >
             Lire l&apos;article

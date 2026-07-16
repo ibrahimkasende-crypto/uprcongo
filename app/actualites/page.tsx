@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
-import { NewsList } from "@/components/NewsList";
 import { SectionTitle } from "@/components/SectionTitle";
-import { getActualites } from "@/lib/content";
+import { PublicNews } from "@/components/PublicNews";
 
 export const metadata: Metadata = {
   title: "Actualités",
@@ -11,7 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function ActualitesPage() {
-  const actualites = getActualites();
 
   return (
     <>
@@ -28,7 +26,7 @@ export default function ActualitesPage() {
       <section className="section-padding">
         <div className="container-upr">
           <SectionTitle eyebrow="Dernières nouvelles" title="Publications récentes" />
-          <NewsList items={actualites} />
+          <PublicNews list />
         </div>
       </section>
     </>

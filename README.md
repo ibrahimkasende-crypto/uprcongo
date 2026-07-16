@@ -5,6 +5,7 @@ Site officiel de l'UPR Congo — Union des Patriotes pour la République. Platef
 - Domaine : https://uprcongo.com
 - Devise : Dieu - Patrie - Justice
 - Slogan : Servir sans se servir
+- Hébergement : **Netlify**
 
 ## Commandes
 
@@ -12,134 +13,113 @@ Site officiel de l'UPR Congo — Union des Patriotes pour la République. Platef
 npm install
 npm run dev
 npm run build
-npm run images:setup
 ```
 
 ## Depot GitHub
 
 URL : https://github.com/ibrahimkasende-crypto/uprcongo
 
-- **main** : code source Next.js
-- **hostinger-deploy** : site statique genere par GitHub Actions
+Branche source : **main**
 
-# Deploiement Hostinger avec GitHub
+# Déploiement Netlify
 
-Depot GitHub : https://github.com/ibrahimkasende-crypto/uprcongo
+Le site est déployé sur Netlify à partir du dépôt GitHub (`main`).
 
-Branche source : main
+Build Netlify (déjà dans `netlify.toml`) :
+- Commande : `npm run build`
+- Dossier publié : `out`
+- Node : `22`
 
-Branche de deploiement statique : hostinger-deploy
+## Variables d’environnement Netlify (obligatoires)
 
-## Connexion a Hostinger
+Les variables Supabase ne se mettent **pas** dans GitHub Secrets pour Netlify.
+Elles se configurent dans le tableau de bord Netlify.
 
-1. Aller dans Hostinger hPanel.
-2. Aller dans Websites.
-3. Choisir le site uprcongo.com.
-4. Cliquer sur Dashboard.
-5. Aller dans Advanced.
-6. Ouvrir Git.
-7. Cliquer sur Continue with GitHub.
-8. Autoriser Hostinger a acceder au compte GitHub.
-9. Selectionner le depot : ibrahimkasende-crypto/uprcongo
-10. Selectionner la branche : hostinger-deploy
-11. Definir le dossier de deploiement : public_html
-12. Lancer le deploiement.
+1. Aller sur [https://app.netlify.com](https://app.netlify.com)
+2. Ouvrir le site UPR Congo
+3. Aller dans **Site configuration** → **Environment variables**
+4. Cliquer sur **Add a variable** / **Add environment variables**
+5. Créer exactement :
 
-Important : le contenu de la branche hostinger-deploy est deja le site statique genere. C est cette branche qu il faut connecter a Hostinger.
+| Clé | Valeur |
+|-----|--------|
+| `NEXT_PUBLIC_SUPABASE_URL` | `https://qgsslaearcbkmyoqzhmu.supabase.co` |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | votre clé anon / publishable Supabase |
 
-# Mettre a jour le site
+6. Scopes : **All scopes** (ou au minimum Builds + Deploy Previews)
+7. Sauvegarder
+8. Relancer un déploiement : **Deploys** → **Trigger deploy** → **Deploy site**
 
-1. Ouvrir le projet dans Cursor.
-2. Modifier les fichiers necessaires.
-3. Tester localement : npm run dev
-4. Verifier le build : npm run build
-5. Envoyer les modifications :
+Sans ces variables, le build Netlify ne pourra pas brancher le site sur Supabase.
+
+## Mettre à jour le site
+
+1. Modifier le code localement
+2. Tester : `npm run dev` puis `npm run build`
+3. Pousser sur `main` :
 
 ```bash
 git add .
-git commit --trailer "Co-authored-by: Cursor <cursoragent@cursor.com>" -m "update: amelioration du site UPR Congo"
+git commit -m "update: amelioration du site UPR Congo"
 git push origin main
 ```
 
-6. GitHub Actions genere out/ et publie dans hostinger-deploy.
-7. Hostinger recupere la nouvelle version depuis hostinger-deploy.
-
-## GitHub CLI
-
-```powershell
-winget install GitHub.cli
-gh auth login
-gh repo create ibrahimkasende-crypto/uprcongo --public --source=. --remote=origin --push
-```
+4. Netlify rebuild automatiquement et publie le site
 
 ## Securite
 
-- Ne jamais committer .env avec des secrets
-- Ne jamais committer node_modules ni out sur main
-- Ne pas modifier manuellement hostinger-deploy
-# Configuration de l'espace admin
+- Ne jamais committer `.env` ni `.env.local`
+- Ne jamais committer de mots de passe
+- Ne jamais utiliser la clé `service_role` dans le frontend
+- Ne jamais committer `node_modules` ni `out` sur main
 
-Le site utilise Decap CMS avec Netlify Identity et Git Gateway.
+# Administration UPR Congo avec Supabase
 
-URL : https://uprcongo.com/admin/
+URL admin : `/admin/login/`
 
-## Etapes a faire dans Netlify
+## Étape 1 — Variables locales
 
-1. Aller dans Netlify.
-2. Ouvrir le site UPR Congo.
-3. Aller dans Site configuration.
-4. Activer Identity.
-5. Dans les parametres Identity, mettre Registration sur : Invite only
-6. Activer Git Gateway.
-7. Inviter les utilisateurs autorises :
+Créer `.env.local` (ne jamais le pousser sur GitHub) :
 
-President national : ciakudia@gmail.com
+```bash
+NEXT_PUBLIC_SUPABASE_URL=coller_url_du_projet_supabase
+NEXT_PUBLIC_SUPABASE_ANON_KEY=coller_anon_key_supabase
+```
 
-Coordinateur national : semenceengita@gmail.com
+Voir aussi `.env.local.example`.
 
-IT : colettebansompili011@gmail.com
+## Étape 2 — Base de données
 
-8. Chaque utilisateur recoit un email d'invitation.
-9. Chaque utilisateur cree son mot de passe.
-10. Ensuite, il peut aller sur : /admin/
-11. Il se connecte avec son email et son mot de passe.
-12. Il peut ajouter, modifier ou supprimer les contenus.
+Dans Supabase :
 
-Important : ne pas creer un mot de passe unique pour tout le monde. Ne pas ecrire les mots de passe dans le code. Chaque utilisateur doit avoir son propre compte.
+1. Ouvrir **SQL Editor**
+2. **New Query**
+3. Coller tout le contenu de `supabase/schema.sql`
+4. **Run**
 
-## Publier un article
+## Étape 3 — Créer les comptes
 
-1. Aller sur /admin/
-2. Se connecter
-3. Cliquer sur "Actualites UPR"
-4. Cliquer sur "New Actualites UPR"
-5. Remplir : titre, date, categorie, image, resume, contenu complet.
-6. Cliquer sur Save.
-7. Publier.
+Dans Supabase : **Authentication → Users → Add user**
 
-## Modifier un article
+- ciakudia@gmail.com
+- semenceengita@gmail.com
+- colettebansompili011@gmail.com
 
-1. Aller sur /admin/
-2. Ouvrir "Actualites UPR"
-3. Selectionner l'article
-4. Modifier le contenu
-5. Sauvegarder
-6. Publier.
+Définir manuellement un mot de passe pour chaque utilisateur.
+Ne jamais écrire les mots de passe dans le code.
 
-## Supprimer un article
+## Étape 4 — Ajouter les profils admin
 
-1. Aller sur /admin/
-2. Ouvrir l'article
-3. Cliquer sur Delete
-4. Confirmer
-5. Le site se mettra a jour apres rebuild.
+Après création des utilisateurs, exécuter `supabase/seed-admin-profiles.sql` dans le SQL Editor.
 
-## Si l'admin ne fonctionne pas
+## Étape 5 — Tester l’admin
 
-Verifier : Netlify Identity active, Git Gateway active, Registration en Invite only, les utilisateurs invites, le depot GitHub connecte, le backend git-gateway dans public/admin/config.yml, le domaine du site correctement configure.
+Aller sur `/admin/login/` et se connecter avec un compte autorisé.
 
-## Deploiement Netlify
+## Étape 6 — Publier un article
 
-- Build : npm run build
-- Publish : out
-- Decap CMS cree/modifie les fichiers dans GitHub et Netlify rebuild automatiquement a chaque commit sur main.
+Dashboard → Nouvel article → remplir → publier.
+
+- Édition : `/admin/articles/edit/?id=...`
+- Détail public : `/actualites/article/?slug=...`
+- Les brouillons ne sont jamais visibles sur le site public
