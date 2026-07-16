@@ -112,11 +112,23 @@ Ne jamais écrire les mots de passe dans le code.
 
 Après création des utilisateurs, exécuter `supabase/seed-admin-profiles.sql` dans le SQL Editor.
 
-## Étape 5 — Tester l’admin
+## Étape 5 — Importer les articles existants du site
+
+Dans Supabase SQL Editor, exécuter aussi le contenu de `supabase/seed-articles.sql`.
+
+Ce script ajoute les actualités déjà présentes sur le site (déclaration politique, mobilisation, communiqué, etc.) sans créer de doublons.
+
+Pour régénérer ce fichier depuis `data/actualites.json` :
+
+```bash
+node scripts/seed-existing-articles.mjs
+```
+
+## Étape 6 — Tester l’admin
 
 Aller sur `/admin/login/` et se connecter avec un compte autorisé.
 
-## Étape 6 — Publier un article
+## Étape 7 — Publier un article
 
 Dashboard → Nouvel article → remplir → publier.
 

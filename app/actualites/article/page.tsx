@@ -15,6 +15,7 @@ function PublicArticleContent() {
   const [article, setArticle] = useState<ActualiteItem | null>(() =>
     slug ? getActualiteBySlug(slug) || null : null
   );
+  const [recent, setRecent] = useState<ActualiteItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,16 +23,24 @@ function PublicArticleContent() {
       setLoading(false);
       return;
     }
-    void supabase
-      .from("articles")
-      .select("*")
-      .eq("slug", slug)
-      .eq("status", "published")
-      .maybeSingle()
-      .then(({ data }) => {
-        if (data) setArticle(articleToNewsItem(data as Article));
-        setLoading(false);
-      });
+    void Promise.all([
+      supabase.from("articles").select("*").eq("slug", slug).eq("status", "published").maybeSingle(),
+      supabase
+        .from("articles")
+        .select("*")
+        .eq("status", "published")
+        .order("published_at", { ascending: false })
+        .limit(4),
+    ]).then(([detail, list]) => {
+      if (detail.data) setArticle(articleToNewsItem(detail.data as Article));
+      else if (!getActualiteBySlug(slug)) setArticle(null);
+      const others = ((list.data as Article[] | null) || [])
+        .filter((item) => item.slug !== slug)
+        .slice(0, 3)
+        .map(articleToNewsItem);
+      setRecent(others);
+      setLoading(false);
+    });
   }, [slug]);
 
   if (loading) {
@@ -74,10 +83,7 @@ function PublicArticleContent() {
     <>
       <section className="section-padding bg-upr-navy text-white">
         <div className="container-upr max-w-4xl">
-          <Link
-            href="/actualites/"
-            className="mb-6 inline-flex items-center gap-2 font-semibold text-upr-gold"
-          >
+          <Link href="/actualites/" className="mb-6 inline-flex items-center gap-2 font-semibold text-upr-gold">
             <ArrowLeft className="h-4 w-4" />
             Retour aux actualités
           </Link>
@@ -116,6 +122,25 @@ function PublicArticleContent() {
           />
         </div>
       </section>
+      {recent.length > 0 && (
+        <section className="section-padding bg-upr-navy/40">
+          <div className="container-upr max-w-4xl">
+            <h2 className="mb-6 text-2xl font-bold">Articles récents</h2>
+            <div className="space-y-4">
+              {recent.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={`/actualites/article/?slug=${encodeURIComponent(item.slug)}`}
+                  className="block rounded-xl border border-white/10 bg-white/5 p-4 transition hover:border-upr-gold/40"
+                >
+                  <p className="text-xs font-semibold uppercase text-upr-gold">{item.category}</p>
+                  <p className="mt-1 font-semibold">{item.title}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </>
   );
 }

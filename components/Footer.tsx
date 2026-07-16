@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { LockKeyhole } from "lucide-react";
 import { CONTACT, NAVIGATION, PARTY } from "@/lib/constants";
 
 export function Footer() {
@@ -71,11 +72,13 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center">
-        <p className="text-xs text-white/40">
-          <Link href="/admin/" className="transition-colors hover:text-white/60">
-            Administration
-          </Link>
-        </p>
+        <Link
+          href="/admin/login/"
+          className="inline-flex items-center gap-1.5 text-xs text-white/35 transition-colors hover:text-upr-gold"
+        >
+          <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
+          Administration
+        </Link>
       </div>
       <div className="border-t border-white/10 py-6 text-center text-sm text-white/60">
         © {new Date().getFullYear()} {PARTY.fullName}. Tous droits réservés.

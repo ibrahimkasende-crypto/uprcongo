@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { LockKeyhole, Menu, Moon, Sun, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { NAVIGATION, PARTY } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -71,6 +71,16 @@ export function Header() {
           <div className="flex items-center gap-2">
             <Button asChild variant="gold" size="sm" className="hidden sm:inline-flex">
               <Link href="/adhesion/">Adhérer</Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="hidden text-muted-foreground hover:text-upr-gold lg:inline-flex"
+            >
+              <Link href="/admin/login/" aria-label="Administration">
+                <LockKeyhole className="h-4 w-4" />
+              </Link>
             </Button>
             <Button
               variant="ghost"

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { LockKeyhole } from "lucide-react";
 import { isAuthorizedAdminEmail } from "@/lib/admin";
@@ -14,6 +14,19 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    void supabase.auth.getSession().then(async ({ data }) => {
+      const session = data.session;
+      if (!session || !isAuthorizedAdminEmail(session.user.email)) return;
+      const { data: profile } = await supabase
+        .from("admin_profiles")
+        .select("id")
+        .eq("id", session.user.id)
+        .maybeSingle();
+      if (profile) router.replace("/admin/dashboard/");
+    });
+  }, [router]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
